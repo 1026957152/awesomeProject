@@ -2,8 +2,8 @@ FROM golang:latest as builder
 RUN mkdir /build
 ADD . /build/
 WORKDIR /build
-RUN go build -o main .
-RUN CGO_ENABLED=0 GOOS=linux go build -o main ./...
+#RUN go build -o main .
+RUN CGO_ENABLED=0 GOOS=linux go build -o main .
 
 FROM alpine:latest AS production
 RUN adduser -S -D -H -h /app appuser
